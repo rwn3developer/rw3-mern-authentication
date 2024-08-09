@@ -1,23 +1,23 @@
-const express = require('express');
+const express = require("express");
 
-const { connectDb } = require('./config/db');
+const { connectDb } = require("./config/db");
 
 const app = express();
 
 const port = 8000;
 
 //mongodb connection
-connectDb()
+connectDb();
 
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/',require('./routes'));
+app.use("/", require("./routes"));
 
-app.listen(port,(err)=>{
-    if(err){
-        console.log(err);
-        return false
-    }
-    console.log(`server is start on port :- ${port}`);
-})
+app.listen(port, (err) => {
+  if (err) {
+    console.log(err);
+    return false;
+  }
+  console.log(`server is start on port :- ${port}`);
+});
