@@ -4,9 +4,6 @@ const cloudinary = require("../config/cloudinaryConfig");
 
 const jwt = require("jsonwebtoken");
 
-
-
-
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -20,6 +17,7 @@ const login = async (req, res) => {
     const token = await jwt.sign({ payload: user }, "rw3", {
       expiresIn: 1000 * 60 * 60 * 24,
     });
+
     return res.status(404).send({
       success: true,
       message: "Token is here",

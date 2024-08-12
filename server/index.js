@@ -6,11 +6,14 @@ const app = express();
 
 const port = 8000;
 
+const cors = require("cors");
+
 //mongodb connection
 connectDb();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 app.use("/", require("./routes"));
 
