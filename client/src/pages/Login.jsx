@@ -19,11 +19,13 @@ const Login = () => {
         }),
       });
       let response = await res.json();
-      console.log(response);
-      if (response.status) {
+      if (response.success) {
         alert("login successfully");
+        // console.log(response.token);
 
         localStorage.setItem("auth", JSON.stringify(response.token));
+        setEmail("");
+        setPassword("");
       } else {
         alert(response.message);
       }
