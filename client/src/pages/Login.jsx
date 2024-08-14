@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Header from "../components/Header";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [auth, setAuth] = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -24,8 +27,13 @@ const Login = () => {
         // console.log(response.token);
 
         localStorage.setItem("auth", JSON.stringify(response.token));
+        setAuth({
+          ...auth,
+          token: response.token,
+        });
         setEmail("");
         setPassword("");
+        navigate("/dashboard");
       } else {
         alert(response.message);
       }
