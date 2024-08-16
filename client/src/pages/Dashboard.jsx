@@ -4,8 +4,8 @@ import Header from "../components/Header";
 
 const Dashboard = () => {
   const [auth, setAuth] = useAuth();
-  console.log(auth);
-
+  console.log(auth); 
+ 
   return (
     <div>
       <Header />

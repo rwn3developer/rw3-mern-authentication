@@ -18,7 +18,7 @@ const login = async (req, res) => {
       expiresIn: 1000 * 60 * 60 * 24,
     });
 
-    return res.status(404).send({
+    return res.status(200).send({
       success: true,
       message: "Token is here",
       token,
@@ -27,6 +27,8 @@ const login = async (req, res) => {
     console.log(err);
   }
 };
+
+
 
 const register = async (req, res) => {
   try {

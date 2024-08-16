@@ -8,9 +8,12 @@ const port = 8000;
 
 const cors = require("cors");
 
+let cookieParser = require('cookie-parser')
+
 //mongodb connection
 connectDb();
-
+  
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
